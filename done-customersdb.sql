@@ -12,18 +12,18 @@ USE customersdb;
 -- 3. Create tables (customers, orders)
 -- ==========================================
 CREATE TABLE customers(
-	id INT NOT NULL,
+ id INT NOT NULL,
     customer_name VARCHAR(50) NOT NULL,
     city VARCHAR(50) NOT NULL,
-	PRIMARY KEY (id)
+ PRIMARY KEY (id)
 );
 
 CREATE TABLE orders(
-	id INT NOT NULL,									-- unique identifier
-    customer_id INT NOT NULL,							-- other attributes
-    product_name VARCHAR(50) NOT NULL,  				-- more attributes
-    PRIMARY KEY (id),									-- primary key
-	FOREIGN KEY (customer_id) REFERENCES customers(id) 	-- constraints (FK)
+ id INT NOT NULL,         -- unique identifier
+    customer_id INT NOT NULL,       -- other attributes
+    product_name VARCHAR(50) NOT NULL,      -- more attributes
+    PRIMARY KEY (id),         -- primary key
+ FOREIGN KEY (customer_id) REFERENCES customers(id)  -- constraints (FK)
 );
 
 -- ===============================================
@@ -32,11 +32,11 @@ CREATE TABLE orders(
 DROP TABLE orders;
 
 CREATE TABLE orders(
-	id INT NOT NULL,									
-    customer_id INT NOT NULL,							
-    product_name VARCHAR(50) NOT NULL,  				
-    PRIMARY KEY (id),									
-	CONSTRAINT FK_CustomersOrders FOREIGN KEY (customer_id)	-- named constraint
+ id INT NOT NULL,         
+    customer_id INT NOT NULL,       
+    product_name VARCHAR(50) NOT NULL,      
+    PRIMARY KEY (id),         
+ CONSTRAINT FK_CustomersOrders FOREIGN KEY (customer_id) -- named constraint
     REFERENCES customers(id) 
 );
 
